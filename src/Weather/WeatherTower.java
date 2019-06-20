@@ -14,5 +14,8 @@ public class WeatherTower {
         this.conditionChanged();
     }
 
+    private void conditionChanged() {
+    }
+
 
 }

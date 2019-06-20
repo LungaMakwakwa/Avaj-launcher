@@ -1,3 +1,10 @@
+package Weather;
+
+import Aircraft.AircraftFactory;
+
+
+import java.io.*;
+
 public class Simulator {
 
     public static PrintWriter writer;
@@ -82,7 +89,7 @@ public class Simulator {
         WeatherProvider weatherProvider = WeatherProvider.getProvider();
         while (cycles > 0)
         {
-            weatherTower.changeWeather();
+            //weatherTower.changeWeather();
             cycles--;
         }
 

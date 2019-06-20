@@ -1,4 +1,6 @@
-package avaj.weather;
+package Weather;
+
+import Aircraft.Coordinates;
 
 public class WeatherProvider
 {
