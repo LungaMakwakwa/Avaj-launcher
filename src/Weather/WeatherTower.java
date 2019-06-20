@@ -4,15 +4,15 @@ import Aircraft.Coordinates;
 
 public class WeatherTower {
 
+    public String getWeather(Coordinates coordinates)
+    {
+        return WeatherProvider.getProvider().getCurrentWeather(coordinates);
+    }
 
-    // this is going to get the weather;
-//    public String getWeather(Coordinates coordinates){
-//
-//        //this.coordinates = coordinates;
-////        return ;
-//    }
-
-
+    void changeWeather()
+    {
+        this.conditionChanged();
+    }
 
 
 }
