@@ -16,6 +16,11 @@ public class Jetplane extends Aircraft implements Flyable{
 
     public void updateCondition()
     {
+
+    }
+
+    @Override
+    public void updateConditions() {
         //code update weather condition depending on vehicle type
         //Sun
 
@@ -38,7 +43,7 @@ public class Jetplane extends Aircraft implements Flyable{
                     coordinates.getHeight() + 0
             );
         }
-        
+
         //FOG
         else if (weather.equals("FOG"))
         {
@@ -58,11 +63,6 @@ public class Jetplane extends Aircraft implements Flyable{
                     coordinates.getHeight() + 0
             );
         }
-    }
-
-    @Override
-    public void updateConditions() {
-
     }
 
     @Override

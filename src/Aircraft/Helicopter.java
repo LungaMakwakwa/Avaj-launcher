@@ -15,8 +15,13 @@ public class Helicopter extends Aircraft implements Flyable {
         super(name, coordinates);
     }
 
-    public void updateCondition()
-    {
+//    public void updateCondition()
+//    {
+//
+//    }
+
+    @Override
+    public void updateConditions() {
         //code update weather condition depending on vehicle type
         String weather = weatherTower.getWeather(this.coordinates);
         //Sun
@@ -38,7 +43,7 @@ public class Helicopter extends Aircraft implements Flyable {
                     coordinates.getHeight() + 0
             );
         }
-        
+
         //FOG
         else if (weather.equals("FOG"))
         {
@@ -58,10 +63,6 @@ public class Helicopter extends Aircraft implements Flyable {
                     coordinates.getHeight() + 0
             );
         }
-    }
-
-    @Override
-    public void updateConditions() {
 
     }
 

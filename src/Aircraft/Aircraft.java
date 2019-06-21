@@ -1,6 +1,6 @@
 package Aircraft;
 
-public class Aircraft {
+abstract public class Aircraft {
 
     protected long id;
     protected String name;

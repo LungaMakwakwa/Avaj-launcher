@@ -14,12 +14,17 @@ public class Baloon extends Aircraft implements Flyable{
         super(name, coordinates);
     }
 
-    public void updateCondition()
-    {
+//    public void updateCondition()
+//    {
+//
+//    }
+
+    @Override
+    public void updateConditions() {
         //code update weather condition depending on vehicle type
         String weather = weatherTower.getWeather(this.coordinates);
 
-        //if (weather.equals("SUN"))this.coordinates = new Coordinates(coordinates.getLongitude() + 2,coordinates.getLatitude() + 0,coordinates.getHeight() + 4); 
+        //if (weather.equals("SUN"))this.coordinates = new Coordinates(coordinates.getLongitude() + 2,coordinates.getLatitude() + 0,coordinates.getHeight() + 4);
         //update for all conditions
         //Sun
         if (weather.equals("SUN"))
@@ -40,7 +45,7 @@ public class Baloon extends Aircraft implements Flyable{
                     coordinates.getHeight() + 0
             );
         }
-        
+
         //FOG
         else if (weather.equals("FOG"))
         {
@@ -63,12 +68,7 @@ public class Baloon extends Aircraft implements Flyable{
     }
 
     @Override
-    public void updateConditions() {
-
-    }
-
-    @Override
-    public void registerTower(WeatherTower weatherTower) {
+    public void registerTower(WeatherTower weatherTower){
 
     }
 }

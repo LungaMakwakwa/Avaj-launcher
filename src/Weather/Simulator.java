@@ -10,24 +10,32 @@ public class Simulator {
     public static PrintWriter writer;
     public static int cycles;
 
+
+
     public static void main(String[] args)
     {
         if (args.length < 1)
             return;
+
+
         // scenario filename
         String filename = args[0];
 
         File simulationFile = new File("simulation.txt");
+
         try {
             writer = new PrintWriter(simulationFile);
         } catch (FileNotFoundException fne) {
             System.out.println("Error: " + fne.getMessage());
             return;
         }
+
+
         if (simulationFile.exists() && !simulationFile.isDirectory())
             writer.print("");
 
-        AircraftFactory aircraftFactory = new AircraftFactory();
+
+        //AircraftFactory aircraftFactory = new AircraftFactory();
         WeatherTower weatherTower = new WeatherTower();
         try {
             FileInputStream fstream = new FileInputStream(filename);
@@ -61,22 +69,30 @@ public class Simulator {
                         throw new Exception("Error: line " + line + ": there must be 5 parameters.");
 
                     try {
-                        aircraftFactory.newAircraft(
+                        AircraftFactory.newAircraft(
                                 splitted[0],
                                 splitted[1],
                                 Integer.parseInt(splitted[2]),
                                 Integer.parseInt(splitted[3]),
                                 Integer.parseInt(splitted[4])
                         ).registerTower(weatherTower);
+
+                        System.out.println(splitted[0]);
+                        System.out.println(splitted[1]);
+                        System.out.println(splitted[2]);
+                        System.out.println(splitted[3]);
+                        System.out.println(splitted[4]);
+
                     } catch (NumberFormatException nfe) {
                         System.out.println("Error: line " + line + ": parameter 3 to 5 must be integers.");
                         return;
+
                     } catch (Exception ex) {
                         System.out.println("Error: " + ex.getMessage());
                         return;
                     }
                 }
-//                System.out.println(strLine);
+                System.out.println(strLine);
                 line++;
             }
 
