@@ -1,5 +1,6 @@
 package Aircraft;
 
+import Weather.Simulator;
 import Weather.WeatherTower;
 
 public class Baloon extends Aircraft implements Flyable{
@@ -65,10 +66,19 @@ public class Baloon extends Aircraft implements Flyable{
                     coordinates.getHeight() + 0
             );
         }
+
+        Simulator.writer.println("Baloon#" + this.name + "(" + this.id + ") : ");
+        if (this.coordinates.getHeight() == 0) {
+            Simulator.writer.println("Baloon#" + this.name + " (" + this.id + ") Landing.");
+            //this.unregister(this); unregister aircraft
+            Simulator.writer.println("Tower says: Baloon#" + this.name + "(" + this.id + ") Landing.");
+
+        }
     }
 
     @Override
     public void registerTower(WeatherTower weatherTower){
-
+        this.weatherTower.register(this);
+        Simulator.writer.println("Tower says: Baloon#" + this.name + "(" + this.id + ") registered.");
     }
 }

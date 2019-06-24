@@ -35,7 +35,7 @@ public class Simulator {
             writer.print("");
 
 
-        //AircraftFactory aircraftFactory = new AircraftFactory();
+//        AircraftFactory aircraftFactory = new AircraftFactory();
         WeatherTower weatherTower = new WeatherTower();
         try {
             FileInputStream fstream = new FileInputStream(filename);

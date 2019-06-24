@@ -1,7 +1,8 @@
 package Aircraft;
 
-import Aircraft.Coordinates;
+import Weather.Simulator;
 import Weather.WeatherTower;
+
 
 public class Jetplane extends Aircraft implements Flyable{
 
@@ -19,7 +20,7 @@ public class Jetplane extends Aircraft implements Flyable{
 
     }
 
-    @Override
+    //@Override
     public void updateConditions() {
         //code update weather condition depending on vehicle type
         //Sun
@@ -63,10 +64,20 @@ public class Jetplane extends Aircraft implements Flyable{
                     coordinates.getHeight() + 0
             );
         }
+
+        Simulator.writer.println("Jetplane#" + this.name + "(" + this.id + ") : ");
+        if (this.coordinates.getHeight() == 0) {
+            Simulator.writer.println("Jetplane#" + this.name + " (" + this.id + ") Landing.");
+            //this.unregister(this); unregister aircraft
+            Simulator.writer.println("Tower says: Jetplane#" + this.name + "(" + this.id + ") Landing.");
+
+        }
     }
 
-    @Override
+    //@Override
     public void registerTower(WeatherTower weatherTower) {
-
+        //this.weatherTower = weatherTower;
+        this.weatherTower.register(this);
+        Simulator.writer.println("Tower says: Jetplane#" + this.name + "(" + this.id + ") registered.");
     }
 }
