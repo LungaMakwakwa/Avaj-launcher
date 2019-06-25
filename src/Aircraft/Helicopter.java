@@ -63,7 +63,7 @@ public class Helicopter extends Aircraft implements Flyable {
         Simulator.writer.println("Helicopter#" + this.name + "(" + this.id + ") : ");
         if (this.coordinates.getHeight() == 0) {
             Simulator.writer.println("Helicopter#" + this.name + " (" + this.id + ") Landing.");
-            //this.unregister(this); unregister aircraft
+            //this.unregister(this);
             Simulator.writer.println("Tower says: Helicopter#" + this.name + "(" + this.id + ") Landing.");
 
         }
@@ -74,6 +74,7 @@ public class Helicopter extends Aircraft implements Flyable {
 
     @Override
     public void registerTower(WeatherTower weatherTower) {
+        this.weatherTower = weatherTower;
         this.weatherTower.register(this);
         Simulator.writer.println("Tower says: Helicopter#" + this.name + "(" + this.id + ") registered.");
     }

@@ -15,10 +15,6 @@ public class Jetplane extends Aircraft implements Flyable{
         super(name, coordinates);
     }
 
-    public void updateCondition()
-    {
-
-    }
 
     //@Override
     public void updateConditions() {
@@ -76,7 +72,7 @@ public class Jetplane extends Aircraft implements Flyable{
 
     //@Override
     public void registerTower(WeatherTower weatherTower) {
-        //this.weatherTower = weatherTower;
+        this.weatherTower = weatherTower;
         this.weatherTower.register(this);
         Simulator.writer.println("Tower says: Jetplane#" + this.name + "(" + this.id + ") registered.");
     }

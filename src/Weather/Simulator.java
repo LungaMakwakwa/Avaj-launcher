@@ -14,8 +14,8 @@ public class Simulator {
 
     public static void main(String[] args)
     {
-        if (args.length < 1)
-            return;
+//        if (args.length < 1)
+//            return;
 
 
         // scenario filename
@@ -77,12 +77,6 @@ public class Simulator {
                                 Integer.parseInt(splitted[4])
                         ).registerTower(weatherTower);
 
-                        System.out.println(splitted[0]);
-                        System.out.println(splitted[1]);
-                        System.out.println(splitted[2]);
-                        System.out.println(splitted[3]);
-                        System.out.println(splitted[4]);
-
                     } catch (NumberFormatException nfe) {
                         System.out.println("Error: line " + line + ": parameter 3 to 5 must be integers.");
                         return;
@@ -105,7 +99,7 @@ public class Simulator {
         WeatherProvider weatherProvider = WeatherProvider.getProvider();
         while (cycles > 0)
         {
-            //weatherTower.changeWeather();
+            weatherTower.changeWeather();
             cycles--;
         }
 
