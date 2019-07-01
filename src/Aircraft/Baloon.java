@@ -24,6 +24,7 @@ public class Baloon extends Aircraft implements Flyable{
     public void updateConditions() {
         //code update weather condition depending on vehicle type
         String weather = weatherTower.getWeather(this.coordinates);
+        //String message;
 
         //if (weather.equals("SUN"))this.coordinates = new Coordinates(coordinates.getLongitude() + 2,coordinates.getLatitude() + 0,coordinates.getHeight() + 4);
         //update for all conditions
@@ -32,45 +33,53 @@ public class Baloon extends Aircraft implements Flyable{
         {
             this.coordinates = new Coordinates(
                     coordinates.getLongitude() + 2,
-                    coordinates.getHeight() + 4,
-                    coordinates.getHeight() + 0
+                    coordinates.getLatitude() + 0,
+                    coordinates.getHeight() + 4
             );
+            //message = "Its a sunny day";
+            Simulator.writer.println("Baloon#" + this.name + "(" + this.id + ") : Its a sunny day");
         }
 
         //RAIN Maunga12@makwash@
         else if (weather.equals("RAIN"))
         {
             this.coordinates = new Coordinates(
-                    coordinates.getHeight() - 5,
+                    coordinates.getLongitude() + 0,
                     coordinates.getLatitude() + 0,
-                    coordinates.getHeight() + 0
+                    coordinates.getHeight() - 5
             );
+            //message = "Let it rain";
+            Simulator.writer.println("Baloon#" + this.name + "(" + this.id + ") : Let it rain");
         }
 
         //FOG
         else if (weather.equals("FOG"))
         {
             this.coordinates = new Coordinates(
-                    coordinates.getHeight() - 3,
+                    coordinates.getLongitude() + 0,
                     coordinates.getLatitude() + 0,
-                    coordinates.getHeight() + 0
+                    coordinates.getHeight() - 3
             );
+            //message = "Open you eyes cause its foggy";
+            Simulator.writer.println("Baloon#" + this.name + "(" + this.id + ") : Open your eyes cause its foggy");
         }
 
         //SNOW
         else if (weather.equals("SNOW"))
         {
             this.coordinates = new Coordinates(
-                    coordinates.getHeight() - 15,
+                    coordinates.getLongitude() + 0,
                     coordinates.getLatitude() + 0,
-                    coordinates.getHeight() + 0
+                    coordinates.getHeight() - 15
             );
+            //message = "Snow angels";
+            Simulator.writer.println("Baloon#" + this.name + "(" + this.id + ") : Snow angels");
         }
 
-        Simulator.writer.println("Baloon#" + this.name + "(" + this.id + ") : ");
+        //Simulator.writer.println("Baloon#" + this.name + "(" + this.id + ") : " + message);
         if (this.coordinates.getHeight() == 0) {
             Simulator.writer.println("Baloon#" + this.name + " (" + this.id + ") Landing.");
-            //this.unregister(this); unregister aircraft
+            this.weatherTower.unregister(this);
             Simulator.writer.println("Tower says: Baloon#" + this.name + "(" + this.id + ") Landing.");
 
         }

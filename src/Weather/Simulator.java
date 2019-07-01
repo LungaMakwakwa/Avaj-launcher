@@ -14,8 +14,8 @@ public class Simulator {
 
     public static void main(String[] args)
     {
-//        if (args.length < 1)
-//            return;
+        if (args.length < 1)
+            return;
 
 
         // scenario filename
