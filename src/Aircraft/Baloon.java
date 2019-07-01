@@ -80,9 +80,11 @@ public class Baloon extends Aircraft implements Flyable{
         if (this.coordinates.getHeight() == 0) {
             Simulator.writer.println("Baloon#" + this.name + " (" + this.id + ") Landing.");
             this.weatherTower.unregister(this);
-            Simulator.writer.println("Tower says: Baloon#" + this.name + "(" + this.id + ") Landing.");
+            Simulator.writer.println("Tower says: Baloon#" + this.name + "(" + this.id + ")  unregistered from weather tower.");
 
         }
+
+        //Simulator.writer.println("|-------------------------------------------------------------------------------------------|");
     }
 
     @Override
@@ -90,5 +92,6 @@ public class Baloon extends Aircraft implements Flyable{
         this.weatherTower = weatherTower;
         this.weatherTower.register(this);
         Simulator.writer.println("Tower says: Baloon#" + this.name + "(" + this.id + ") registered.");
+        //Simulator.writer.println("|-------------------------------------------------------------------------------------------|");
     }
 }

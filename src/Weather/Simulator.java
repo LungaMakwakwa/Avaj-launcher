@@ -44,6 +44,8 @@ public class Simulator {
             int line = 1;
             String[] splitted;
 
+            //1st check for errors
+
             while ((strLine = br.readLine()) != null)
             {
                 // Checking the first line that must be only 1 parameter as an integer.
@@ -62,6 +64,7 @@ public class Simulator {
                 // For the other lines, we check for the format <String> <String> <Int> <Int> <Int>
                 else
                 {
+
                     splitted = strLine.split(" ");
                     if (splitted.length == 1 && splitted[0].isEmpty()) // Do not consider empty lines
                         continue;
@@ -86,7 +89,7 @@ public class Simulator {
                         return;
                     }
                 }
-                System.out.println(strLine);
+//                System.out.println(strLine);
                 line++;
             }
 

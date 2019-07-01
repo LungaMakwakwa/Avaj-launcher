@@ -16,7 +16,7 @@ public class Jetplane extends Aircraft implements Flyable{
     }
 
 
-    //@Override
+    @Override
     public void updateConditions() {
         //code update weather condition depending on vehicle type
         //Sun
@@ -74,16 +74,19 @@ public class Jetplane extends Aircraft implements Flyable{
         //Simulator.writer.println("Jetplane#" + this.name + "(" + this.id + ") : " + message);
         if (this.coordinates.getHeight() == 0) {
             Simulator.writer.println("Jetplane#" + this.name + " (" + this.id + ") Landing.");
-            //this.unregister(this); unregister aircraft
-            Simulator.writer.println("Tower says: Jetplane#" + this.name + "(" + this.id + ") Landing.");
+            this.weatherTower.unregister(this);
+            Simulator.writer.println("Tower says: Jetplane#" + this.name + "(" + this.id + ")  unregistered from weather tower.");
 
         }
+
+        //Simulator.writer.println("|-------------------------------------------------------------------------------------------|");
     }
 
-    //@Override
+    @Override
     public void registerTower(WeatherTower weatherTower) {
         this.weatherTower = weatherTower;
         this.weatherTower.register(this);
         Simulator.writer.println("Tower says: Jetplane#" + this.name + "(" + this.id + ") registered.");
+        //Simulator.writer.println("|-------------------------------------------------------------------------------------------|");
     }
 }
