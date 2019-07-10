@@ -3,6 +3,7 @@ package Weather;
 import Aircraft.AircraftFactory;
 
 
+
 import java.io.*;
 
 public class Simulator {
@@ -14,11 +15,11 @@ public class Simulator {
 
     public static void main(String[] args)
     {
-        if (args.length < 1)
+        if (args.length < 1) {
+            System.out.println("input senerio.txt");
             return;
+        }
 
-
-        // scenario filename
         String filename = args[0];
 
         File simulationFile = new File("simulation.txt");
@@ -35,7 +36,6 @@ public class Simulator {
             writer.print("");
 
 
-//        AircraftFactory aircraftFactory = new AircraftFactory();
         WeatherTower weatherTower = new WeatherTower();
         try {
             FileInputStream fstream = new FileInputStream(filename);
@@ -44,11 +44,8 @@ public class Simulator {
             int line = 1;
             String[] splitted;
 
-            //1st check for errors
-
             while ((strLine = br.readLine()) != null)
             {
-                // Checking the first line that must be only 1 parameter as an integer.
                 if (line == 1)
                     try {
                         cycles = Integer.parseInt(strLine);
@@ -61,14 +58,12 @@ public class Simulator {
                         System.out.println("Error: first line of scenario file must be an integer.");
                         return;
                     }
-                // For the other lines, we check for the format <String> <String> <Int> <Int> <Int>
                 else
                 {
-
                     splitted = strLine.split(" ");
-                    if (splitted.length == 1 && splitted[0].isEmpty()) // Do not consider empty lines
+                    if (splitted.length == 1 && splitted[0].isEmpty())
                         continue;
-                    if (splitted.length != 5) // Check if there are 5 parameters
+                    if (splitted.length != 5)
                         throw new Exception("Error: line " + line + ": there must be 5 parameters.");
 
                     try {
@@ -89,7 +84,6 @@ public class Simulator {
                         return;
                     }
                 }
-//                System.out.println(strLine);
                 line++;
             }
 
@@ -99,7 +93,6 @@ public class Simulator {
             return;
         }
 
-        WeatherProvider weatherProvider = WeatherProvider.getProvider();
         while (cycles > 0)
         {
             weatherTower.changeWeather();

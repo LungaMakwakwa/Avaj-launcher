@@ -1,6 +1,5 @@
 package Aircraft;
 
-import Aircraft.Coordinates;
 import Weather.Simulator;
 import Weather.WeatherTower;
 
@@ -69,14 +68,14 @@ public class Helicopter extends Aircraft implements Flyable {
             Simulator.writer.println("Helicopter#" + this.name + "(" + this.id + ") : Snow angels");
         }
 
-//        Simulator.writer.println("Helicopter#" + this.name + "(" + this.id + ") : ");
+//        Weather.Simulator.writer.println("Helicopter#" + this.name + "(" + this.id + ") : ");
         if (this.coordinates.getHeight() == 0) {
             Simulator.writer.println("Helicopter#" + this.name + " (" + this.id + ") Landing.");
             this.weatherTower.unregister(this);
             Simulator.writer.println("Tower says: Helicopter#" + this.name + "(" + this.id + ")  unregistered from weather tower.");
 
         }
-        //Simulator.writer.println("|-------------------------------------------------------------------------------------------|");
+        //Weather.Simulator.writer.println("|-------------------------------------------------------------------------------------------|");
 
 
 
@@ -87,6 +86,6 @@ public class Helicopter extends Aircraft implements Flyable {
         this.weatherTower = weatherTower;
         this.weatherTower.register(this);
         Simulator.writer.println("Tower says: Helicopter#" + this.name + "(" + this.id + ") registered.");
-        //Simulator.writer.println("|-------------------------------------------------------------------------------------------|");
+        //Weather.Simulator.writer.println("|-------------------------------------------------------------------------------------------|");
     }
 }

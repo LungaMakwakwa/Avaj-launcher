@@ -18,5 +18,4 @@ abstract public class Aircraft {
         this.coordinates = coordinates;
     }
 
-    //Get back to adding the next id function
 }

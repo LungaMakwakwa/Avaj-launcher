@@ -71,7 +71,7 @@ public class Jetplane extends Aircraft implements Flyable{
 
         }
 
-        //Simulator.writer.println("Jetplane#" + this.name + "(" + this.id + ") : " + message);
+        //Weather.Simulator.writer.println("Jetplane#" + this.name + "(" + this.id + ") : " + message);
         if (this.coordinates.getHeight() == 0) {
             Simulator.writer.println("Jetplane#" + this.name + " (" + this.id + ") Landing.");
             this.weatherTower.unregister(this);
@@ -79,7 +79,7 @@ public class Jetplane extends Aircraft implements Flyable{
 
         }
 
-        //Simulator.writer.println("|-------------------------------------------------------------------------------------------|");
+        //Weather.Simulator.writer.println("|-------------------------------------------------------------------------------------------|");
     }
 
     @Override
@@ -87,6 +87,6 @@ public class Jetplane extends Aircraft implements Flyable{
         this.weatherTower = weatherTower;
         this.weatherTower.register(this);
         Simulator.writer.println("Tower says: Jetplane#" + this.name + "(" + this.id + ") registered.");
-        //Simulator.writer.println("|-------------------------------------------------------------------------------------------|");
+        //Weather.Simulator.writer.println("|-------------------------------------------------------------------------------------------|");
     }
 }
